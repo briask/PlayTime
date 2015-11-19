@@ -18,9 +18,11 @@ namespace ParallelPlayTime
             ConcurrentDictionary<string, int> original = new ConcurrentDictionary<string, int>();
             ConcurrentDictionary<string, int> copy = new ConcurrentDictionary<string, int>();
 
+            var rnd = new Random();
             foreach (var symbol in mySymbols.All.OrderBy(s => s))
             {
-                original.TryAdd(symbol, new Random().Next(0, 100));
+
+                original.TryAdd(symbol, rnd.Next(0, 1000));
                 copy.TryAdd(symbol, 0);
             }
 
